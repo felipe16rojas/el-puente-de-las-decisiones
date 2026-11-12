@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Créditos - El Puente de las Decisiones</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="accessibility-bar">
+    <div class="accessibility-bar-title">
+      <span>♿</span> Recurso Accesible (Lectura Fácil + LSC)
+    </div>
+    <div class="audio-controls">
+      <button id="btn-read-screen" class="btn-a11y" aria-label="Escuchar los créditos">
+        🔊 Escuchar créditos
+      </button>
+      <button id="btn-stop-audio" class="btn-a11y" aria-label="Detener la voz">
+        ⏹️ Detener voz
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <span class="station-badge">👥 Créditos del Proyecto Académico</span>
+      <h1>El Puente de las Decisiones</h1>
+      
+      <p style="font-size: 14.5px; margin-bottom: 6px;">
+        <strong>Institución:</strong> Universidad Nacional Abierta y a Distancia (UNAD)<br>
+        <strong>Curso:</strong> Discapacidad y Sexualidad (Código 80011)<br>
+        <strong>Actividad:</strong> Tarea 3: Innovación en Educación Sexual Integral
+      </p>
+
+      <h2 style="font-size: 16.5px; margin-top: 8px; color: var(--accent-blue);">Estudiantes Integrantes:</h2>
+      <ul class="rights-list" style="margin: 4px 0;">
+        <li><span style="font-size: 18px;">👤</span> [Nombre del Estudiante 1]</li>
+        <li><span style="font-size: 18px;">👤</span> [Nombre del Estudiante 2]</li>
+        <li><span style="font-size: 18px;">👤</span> [Nombre del Estudiante 3]</li>
+        <li><span style="font-size: 18px;">👤</span> [Nombre del Estudiante 4]</li>
+        <li><span style="font-size: 18px;">👤</span> Felipe Rojas Reyes (Estudiante 5)</li>
+      </ul>
+
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 6px; margin-bottom: 10px;">
+        <strong>Fundamentación Teórica:</strong> Basado en los lineamientos de la <em>Orientación para la Inclusión (versión 4.0 de Franco, 2025)</em> y los principios del Diseño Universal de Aprendizaje (DUA).
+      </p>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" class="btn-primary" style="flex: 1; text-decoration: none; padding: 10px; font-size: 15px; background-color: #334155;">
+          🏠 Volver a la portada
+        </a>
+        <a href="juego.html" class="btn-primary" style="flex: 1; text-decoration: none; padding: 10px; font-size: 15px;">
+          🎮 Jugar de nuevo
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Curso: Discapacidad y Sexualidad (Código 80011) - UNAD | Tarea 3: Innovación en Educación Sexual Integral
+  </footer>
+
+  <script>
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+    document.getElementById('btn-read-screen').addEventListener('click', () => {
+      speakText(document.querySelector('main').innerText);
+    });
+    document.getElementById('btn-stop-audio').addEventListener('click', () => {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Puente de las Decisiones - Bienvenida</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="accessibility-bar">
+    <div class="accessibility-bar-title">
+      <span>♿</span> Recurso Accesible (Lectura Fácil + LSC)
+    </div>
+    <div class="audio-controls">
+      <button id="btn-read-screen" class="btn-a11y" aria-label="Escuchar la bienvenida">
+        🔊 Escuchar portada
+      </button>
+      <button id="btn-stop-audio" class="btn-a11y" aria-label="Detener la voz">
+        ⏹️ Detener voz
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" style="text-align: center;">
+      <span style="font-size: 48px; display: block; margin-bottom: 4px;">🌉✨</span>
+      <span class="station-badge">Universidad Nacional Abierta y a Distancia - UNAD</span>
+      
+      <!-- Mensaje de bienvenida claro -->
+      <h2 style="color: var(--text-secondary); font-size: 20px; font-weight: 700; margin-top: 6px; margin-bottom: 2px;">
+        ¡Bienvenido o bienvenida al juego digital! 👋
+      </h2>
+      
+      <h1 style="margin-top: 4px; font-size: clamp(24px, 4vw, 32px);">El Puente de las Decisiones</h1>
+      
+      <p style="font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; line-height: 1.4;">
+        Recurso educativo accesible, inclusivo y responsivo para la Tarea 3 del curso <strong>Discapacidad y Sexualidad</strong>. Diseñado bajo el Diseño Universal de Aprendizaje (DUA) para promover la autonomía, el consentimiento y los derechos sexuales.
+      </p>
+      
+      <!-- Un solo botón limpio y directo que lleva al juego -->
+      <div style="display: flex; justify-content: center;">
+        <a href="juego.html" class="btn-primary" style="max-width: 340px; text-decoration: none; background-color: var(--accent-blue);">
+          Comenzar el juego 🚀
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Curso: Discapacidad y Sexualidad (Código 80011) - UNAD | Tarea 3: Innovación en Educación Sexual Integral
+  </footer>
+
+  <script>
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+    document.getElementById('btn-read-screen').addEventListener('click', () => {
+      speakText(document.querySelector('main').innerText);
+    });
+    document.getElementById('btn-stop-audio').addEventListener('click', () => {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    });
+  </script>
+</body>
+</html>

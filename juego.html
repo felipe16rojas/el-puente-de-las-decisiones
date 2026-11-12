@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Puente de las Decisiones - Educación Sexual Integral Accesible</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="accessibility-bar">
+    <div class="accessibility-bar-title">
+      <span>♿</span> Recurso Accesible (Lectura Fácil + LSC)
+    </div>
+    <div class="audio-controls">
+      <button id="btn-read-screen" class="btn-a11y" aria-label="Escuchar el texto de esta pantalla">
+        🔊 Escuchar pantalla
+      </button>
+      <button id="btn-stop-audio" class="btn-a11y" aria-label="Detener la voz">
+        ⏹️ Detener voz
+      </button>
+      <button id="btn-speed" class="btn-a11y" aria-label="Cambiar velocidad de lectura">
+        🐢 Velocidad: Normal
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- PANTALLA DE INICIO -->
+    <section id="screen-intro" class="card">
+      <span class="station-badge">🌉 Educación Sexual Integral (ESI)</span>
+      <h1>El Puente de las Decisiones</h1>
+      <p>
+        Espacio interactivo accesible para personas con discapacidad intelectual y auditiva (con apoyo visual y Lengua de Señas Colombiana - LSC).
+      </p>
+      <p>
+        Practicaremos cómo tomar decisiones libres, seguras y autónomas sobre nuestro cuerpo, privacidad y relaciones.
+      </p>
+
+      <ul class="rights-list">
+        <li><span style="font-size: 28px;">🛡️</span> Estación 1: Mi Cuerpo, Mis Reglas (Privacidad y Límites)</li>
+        <li><span style="font-size: 28px;">🚦</span> Estación 2: El Semáforo del Afecto (Consentimiento)</li>
+        <li><span style="font-size: 28px;">🤝</span> Estación 3: Mi Red de Apoyo (Autoprotección y Derechos)</li>
+        <li><span style="font-size: 28px;">🤟</span> Incorpora apoyo visual en Lengua de Señas Colombiana (LSC).</li>
+      </ul>
+
+      <button id="btn-start" class="btn-primary">
+        Comenzar el recorrido ➡️
+      </button>
+    </section>
+
+    <!-- PANTALLA DE JUEGO -->
+    <section id="screen-game" class="card hidden">
+      <div id="station-badge" class="station-badge">Estación 1</div>
+      <div class="progress-bar-container" aria-label="Progreso del juego">
+        <div id="progress-fill" class="progress-bar-fill"></div>
+      </div>
+
+      <h2 id="question-title">Situación</h2>
+
+      <div class="scenario-box">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
+          <div>
+            <span id="scenario-pictogram" class="pictogram-header" aria-hidden="true">🚪</span>
+            <p id="scenario-text" class="scenario-text"></p>
+          </div>
+          <!-- Recuadro de apoyo en Lengua de Señas Colombiana -->
+          <div style="background-color: #EFF6FF; border: 2px solid #3B82F6; border-radius: 10px; padding: 12px; text-align: center; min-width: 140px;">
+            <span style="font-size: 30px; display: block;" aria-hidden="true">🤟</span>
+            <span style="font-size: 14px; font-weight: 700; color: #1E40AF; display: block; margin-top: 4px;">Seña Clave (LSC)</span>
+            <span id="lsc-label" style="font-size: 13px; color: #1E293B; font-weight: 700; display: block; margin-top: 2px;">Privacidad</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="options-container" class="options-grid"></div>
+
+      <div id="feedback-box" class="feedback-box" role="alert">
+        <div id="feedback-title" class="feedback-title"></div>
+        <p id="feedback-text" style="margin-bottom: 0;"></p>
+      </div>
+
+      <button id="btn-next" class="btn-primary hidden">
+        Siguiente situación ➡️
+      </button>
+    </section>
+<!-- PANTALLA FINAL -->
+    <section id="screen-end" class="card hidden">
+      <span class="station-badge">🏆 ¡Recorrido Completado!</span>
+      <h1>Tus Derechos Sexuales y Reproductivos son Tuyos</h1>
+      <p style="font-size: 15px; margin-bottom: 8px;">
+        Has completado las tres estaciones de <strong>El Puente de las Decisiones</strong> con adaptaciones de accesibilidad universal.
+      </p>
+
+      <ul class="rights-list" style="margin: 6px 0;">
+        <li><span style="font-size: 20px;">✅</span> Eres una persona adulta con derecho a decidir sobre tu cuerpo.</li>
+        <li><span style="font-size: 20px;">🔒</span> Tu intimidad debe ser respetada por tu entorno.</li>
+        <li><span style="font-size: 20px;">🤟</span> El acceso a la información en LSC garantiza la inclusión de la comunidad sorda.</li>
+      </ul>
+
+      <!-- Dos botones al finalizar: Reiniciar y Créditos -->
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;">
+        <button id="btn-restart" class="btn-primary" style="flex: 1; padding: 10px; font-size: 16px;">
+          🔄 Volver a jugar
+        </button>
+        <a href="creditos.html" class="btn-primary" style="flex: 1; text-decoration: none; padding: 10px; font-size: 16px; background-color: #334155; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+          👥 Ver Créditos
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Curso: Discapacidad y Sexualidad (Código 80011) - UNAD | Tarea 3: Innovación en Educación Sexual Integral
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
